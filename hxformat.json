@@ -1,0 +1,10 @@
+{
+    "indentation": {
+        "character": "    "
+    },
+    "whitespace": {
+        "colonPolicy": "after",
+        "typeHintColonPolicy": "after",
+        "typeCheckColonPolicy": "after"
+    }
+}

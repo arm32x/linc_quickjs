@@ -1,0 +1,41 @@
+<xml>
+    <!-- For a more in depth guide: https://github.com/snowkit/hxcpp-guide -->
+
+    <files id="haxe">
+        <!-- Tell Haxe where to find the necessary header files. -->
+        <compilerflag value="-I${LINC_QUICKJS_PATH}/linc"/>
+        <compilerflag value="-I${LINC_QUICKJS_PATH}/lib/quickjs" />
+
+        <!-- This includes some small wrappers for certain functions. -->
+        <file name='${LINC_QUICKJS_PATH}/linc/linc_quickjs.cpp' />
+    </files>
+
+    <files id="__main__">
+        <!-- This is a special group where HXCPP puts the main function. -->
+        <compilerflag value="-I${LINC_QUICKJS_PATH}/linc"/>
+        <compilerflag value="-I${LINC_QUICKJS_PATH}/lib/quickjs" />
+    </files>
+
+    <!-- Tell HXCPP how to build QuickJS. -->
+    <files id="quickjs">
+        <cache value="true" project="quickjs" asLibrary="true" />
+
+        <compilerflag value="-D_GNU_SOURCE" />
+        <compilerflag value='-DCONFIG_VERSION="2021-03-27"' />
+        <compilerflag if="mingw" value="-D__USE_MINGW_ANSI_STDIO" />
+
+        <compilerflag value="-I${LINC_QUICKJS_PATH}/lib/quickjs" />
+
+        <file name="${LINC_QUICKJS_PATH}/lib/quickjs/quickjs.c" />
+        <file name="${LINC_QUICKJS_PATH}/lib/quickjs/libregexp.c" />
+        <file name="${LINC_QUICKJS_PATH}/lib/quickjs/libunicode.c" />
+        <file name="${LINC_QUICKJS_PATH}/lib/quickjs/cutils.c" />
+        <file name="${LINC_QUICKJS_PATH}/lib/quickjs/quickjs-libc.c" />
+    </files>
+
+    <target id="haxe">
+        <!-- Add QuickJS source code to Haxe build. -->
+        <files id="quickjs" />
+    </target>
+</xml>
+
