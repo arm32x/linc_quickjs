@@ -6,5 +6,8 @@
         "colonPolicy": "after",
         "typeHintColonPolicy": "after",
         "typeCheckColonPolicy": "after"
+    },
+    "wrapping": {
+        "maxLineLength": 120
     }
 }
