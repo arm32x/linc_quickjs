@@ -1,4 +1,5 @@
-# linc/empty
-An example empty project to start a linc library.
+# linc/quickjs
 
-For more information, see the [linc homepage](http://snowkit.github.io/linc/)
+Haxe/HXCPP bindings to the QuickJS JavaScript engine.
+
+Currently a work in progress, not all functions are implemented.
